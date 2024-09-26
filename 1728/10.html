@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAG Bureau Admin Portal</title>
+    <link rel="stylesheet" href="10.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="admin-navbar">
+            <div class="admin-logo">
+                <h1>SAG Bureau Admin</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#verified">Verified Documents</a></li>
+                    <li><a href="#settings">Settings</a></li>
+                    <li><a href="index.html" class="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="admin-section">
+            <h2>Pending Document Verifications</h2>
+            <div class="admin-container">
+                <!-- Example Student Record -->
+                <div class="student-record">
+                    <p><strong>Name:</strong> XYZ</p>
+                    <p><strong>Tracking ID:</strong> PMSSS123456</p>
+                    <div class="document-info">
+                        <p><strong>Aadhaar Card:</strong> <a href="uploads/john_doe_aadhaar.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 001</p>
+                        <p><strong>10th Certificate:</strong> <a href="uploads/john_doe_10th.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 002</p>
+                        <p><strong>12th Certificate:</strong> <a href="uploads/john_doe_12th.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 003</p>
+                        <p><strong>Income Certificate:</strong> <a href="uploads/john_doe_income.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 004</p>
+                        <p><strong>Caste Certificate:</strong> <a href="uploads/john_doe_caste.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 005</p>
+                        <p><strong>Character Certificate:</strong> <a href="uploads/john_doe_character.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 006</p>
+                    </div>
+                    <p><strong>Days Remaining for Verification:</strong> <span class="days-remaining">5 days</span></p>
+                    <div class="action-buttons">
+                        <button class="cta-button approve-btn">Approve</button>
+                        <button class="cta-button danger reject-btn">Reject</button>
+                    </div>
+                </div>
+                <!-- Repeat student-record divs as needed -->
+            </div>
+        </section>
+
+        <!-- Verified Documents Section -->
+        <section id="verified" class="admin-section">
+            <h2>Verified Documents</h2>
+            <div class="admin-container">
+                <!-- Example Verified Student Record -->
+                <div class="student-record verified">
+                    <p><strong>Name:</strong>ABC</p>
+                    <p><strong>Tracking ID:</strong> PMSSS654321</p>
+                    <div class="document-info">
+                        <p><strong>Aadhaar Card:</strong> <a href="uploads/jane_smith_aadhaar.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 007</p>
+                        <p><strong>10th Certificate:</strong> <a href="uploads/jane_smith_10th.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 008</p>
+                        <p><strong>12th Certificate:</strong> <a href="uploads/jane_smith_12th.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 009</p>
+                        <p><strong>Income Certificate:</strong> <a href="uploads/jane_smith_income.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 010</p>
+                        <p><strong>Caste Certificate:</strong> <a href="uploads/jane_smith_caste.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 011</p>
+                        <p><strong>Character Certificate:</strong> <a href="uploads/jane_smith_character.pdf" target="_blank">View</a> | <strong>Serial Number:</strong> 012</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="cta-button send-finance-btn">Send to Finance</button>
+                    </div>
+                </div>
+                <!-- Repeat student-record divs as needed -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="admin-footer">
+            <p>&copy; 2024 SAG Bureau. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Approve/Reject Actions -->
+    <script>
+        // Select all approve and reject buttons
+        const approveButtons = document.querySelectorAll('.approve-btn');
+        const rejectButtons = document.querySelectorAll('.reject-btn');
+        const sendFinanceButtons = document.querySelectorAll('.send-finance-btn');
+
+        approveButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Implement approval logic (e.g., AJAX request to backend)
+                alert('Document Approved');
+                // Move the record to verified section
+                const record = button.closest('.student-record');
+                record.classList.add('verified');
+                record.remove();
+                // Optionally, append to Verified Documents section
+                // This requires backend integration
+            });
+        });
+
+        rejectButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Implement rejection logic (e.g., AJAX request to backend)
+                alert('Document Rejected');
+                // Remove the record or mark as rejected
+                const record = button.closest('.student-record');
+                record.remove();
+                // Optionally, notify the student via email/SMS
+            });
+        });
+
+        sendFinanceButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Implement send to finance logic
+                alert('Documents sent to Finance Department');
+            });
+        });
+    </script>
+</body>
+</html>

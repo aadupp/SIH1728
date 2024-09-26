@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMSSS Scholarship Portal</title>
+    <link rel="stylesheet" href="11.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>PMSSS Scholarships</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#upload">Submit Documents</a></li>
+                    <li><a href="#track">Track Status</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#login" class="login-btn">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Login Section -->
+        <section class="login-section">
+            <h2>Login to Continue</h2>
+            <div class="login-container">
+                <a href="admin-portal.html" class="admin-login">Admin Login</a>
+                <a href="#" class="student-login">Student Login</a>
+            </div>
+        </section>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="home-content">
+                <h2>Welcome to the Scholarship Portal</h2>
+                <p>Submit your scholarship documents securely and track your application status.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://source.unsplash.com/600x400/?scholarship" alt="Scholarship Portal">
+            </div>
+        </section>
+
+        <!-- Verification Progress Section -->
+        <section class="verification-progress">
+            <h2>Document Verification Progress</h2>
+            <div class="circular-progress" id="verification-progress">
+                <div class="tick-icon">&#10003;</div>
+                <div class="progress-circle">
+                    <span class="progress-percent">50%</span>
+                </div>
+                <p>Documents Verified</p>
+            </div>
+            <div class="circular-progress" id="payment-progress">
+                <div class="tick-icon">&#10003;</div>
+                <div class="progress-circle">
+                    <span class="progress-percent">80%</span>
+                </div>
+                <p>Payment Disbursed</p>
+            </div>
+        </section>
+
+        <!-- Document Status Section -->
+        <section class="document-status">
+            <h2>Document Submission Status</h2>
+            <div class="status-box accepted">
+                <p>Documents Accepted!</p>
+                <p>Your token: <strong>ABC123XYZ</strong></p>
+            </div>
+            <div class="status-box rejected">
+                <p>Documents Rejected!</p>
+                <p>Please <a href="#upload">retry</a> submitting your documents.</p>
+            </div>
+            <div class="status-box payment-disbursed">
+                <p>Payment has been successfully disbursed!</p>
+            </div>
+        </section>
+
+        <!-- Upload Documents Section -->
+        <section id="upload" class="upload-section">
+            <h2>Submit Your Documents</h2>
+            <div class="upload-container">
+                <form action="submit_documents.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="upload-box">
+                        <label for="10th-certificate">10th Grade Certificate:</label>
+                        <input type="text" placeholder="Enter Document Serial Number" required>
+                        <input type="file" id="10th-certificate" name="10th_certificate" accept=".jpg, .png, .pdf" required>
+                    </div>
+                    <div class="upload-box">
+                        <label for="12th-certificate">12th Grade Certificate:</label>
+                        <input type="text" placeholder="Enter Document Serial Number" required>
+                        <input type="file" id="12th-certificate" name="12th_certificate" accept=".jpg, .png, .pdf" required>
+                    </div>
+                    <div class="upload-box">
+                        <label for="aadhaar-card">Aadhaar Card:</label>
+                        <input type="text" placeholder="Enter Document Serial Number" required>
+                        <input type="file" id="aadhaar-card" name="aadhaar_card" accept=".jpg, .png, .pdf" required>
+                    </div>
+                    <div class="upload-box">
+                        <label for="income-certificate">Income Certificate:</label>
+                        <input type="text" placeholder="Enter Document Serial Number" required>
+                        <input type="file" id="income-certificate" name="income_certificate" accept=".jpg, .png, .pdf" required>
+                    </div>
+                    <div class="upload-box">
+                        <label for="caste-certificate">Caste Certificate (Optional):</label>
+                        <input type="text" placeholder="Enter Document Serial Number">
+                        <input type="file" id="caste-certificate" name="caste_certificate" accept=".jpg, .png, .pdf">
+                    </div>
+                    <div class="upload-box">
+                        <label for="character-certificate">Character Certificate:</label>
+                        <input type="text" placeholder="Enter Document Serial Number" required>
+                        <input type="file" id="character-certificate" name="character_certificate" accept=".jpg, .png, .pdf" required>
+                    </div>
+                    <div class="upload-box">
+                        <label for="self-photo">Self Photo:</label>
+                        <input type="file" id="self-photo" name="self_photo" accept=".jpg, .png, .pdf" required>
+                    </div>
+                    <div class="upload-box">
+                        <label for="guardian-photo">Guardian’s Photo:</label>
+                        <input type="file" id="guardian-photo" name="guardian_photo" accept=".jpg, .png, .pdf" required>
+                    </div>
+                    <button type="submit" class="cta-button">Submit Documents <i class="fas fa-upload"></i></button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Track Application Section -->
+        <section id="track" class="track-section">
+            <h2>Track Your Application</h2>
+            <div class="track-container">
+                <form action="track_status.php" method="GET">
+                    <div class="form-group">
+                        <label for="tracking-id">Enter Tracking ID</label>
+                        <input type="text" id="tracking-id" name="tracking_id" placeholder="Tracking ID" required>
+                    </div>
+                    <button type="submit" class="cta-button">Track <i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:support@pmsss-scholarships.gov.in">support@pmsss-scholarships.gov.in</a></p>
+            <p>Phone: +91-123-456-7890</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Admin Login</h2>
+            <form action="admin_dashboard.html" method="POST">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" name="admin_username" placeholder="Enter Admin Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" name="admin_password" placeholder="Enter Admin Password" required>
+                </div>
+                <button type="submit" class="cta-button">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Modal -->
+    <script>
+        // Get modal element
+        var modal = document.getElementById("admin-login-modal");
+
+        // Get open modal button
+        var loginBtn = document.querySelector(".login-btn");
+
+        // Get close button
+        var closeBtn = document.querySelector(".close");
+
+        // Listen for open click
+        loginBtn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // Listen for close click
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Listen for outside click
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
